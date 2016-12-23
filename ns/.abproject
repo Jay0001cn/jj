@@ -1,0 +1,28 @@
+{
+  "ProjectName": "ns",
+  "ProjectGuid": "bd7b3606-f881-43d1-842e-c4d5192521f8",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.ns",
+  "DisplayName": "ns",
+  "Author": "",
+  "Description": "ns",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{F0A65104-D4F4-4012-B799-F612D75820F6}",
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "true",
+  "iOSStatusBarStyle": "Default",
+  "FrameworkVersion": "2.3.0",
+  "Framework": "NativeScript"
+}
