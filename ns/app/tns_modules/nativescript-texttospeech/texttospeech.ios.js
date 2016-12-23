@@ -63,6 +63,11 @@ var TNSTextToSpeech = (function () {
         if (this.isString(options.language) && this.isValidLocale(options.language)) {
             speechUtterance.voice = AVSpeechSynthesisVoice.voiceWithLanguage(options.language);
         }
+
+        if (this.isString(options.voice) && this.isValidLocale(options.voice)) {
+            speechUtterance.voice = AVSpeechSynthesisVoice.voiceWithIdentifier(options.voice);
+        }
+
         speechUtterance.pitchMultiplier = options.pitch;
         speechUtterance.volume = options.volume;
         speechUtterance.rate = options.speakRate;
