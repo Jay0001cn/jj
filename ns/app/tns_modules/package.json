@@ -1,0 +1,123 @@
+{
+  "name": "tns-core-modules",
+  "description": "Telerik NativeScript Core Modules",
+  "version": "2.5.0-2016-10-27-4579",
+  "homepage": "https://www.nativescript.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NativeScript/NativeScript/commit/90e79f7bd91e68d8c89ced45b5551d69060aea7a"
+  },
+  "files": [
+    "**/*.d.ts",
+    "**/*.js",
+    "!android17.d.ts",
+    "!ios.d.ts",
+    "!bin/",
+    "!apps/",
+    "!build/",
+    "!node-tests/",
+    "!declarations.android.d.ts",
+    "!declarations.ios.d.ts",
+    "!gruntfile.js",
+    "!org.nativescript.widgets.d.ts"
+  ],
+  "license": "Apache-2.0",
+  "typings": "tns-core-modules.d.ts",
+  "dependencies": {
+    "tns-core-modules-widgets": "next"
+  },
+  "devDependencies": {
+    "tns-platform-declarations": "*"
+  },
+  "nativescript": {
+    "platforms": {
+      "ios": "2.1.1",
+      "android": "2.1.1"
+    }
+  },
+  "publishConfig": {
+    "tag": "next"
+  },
+  "_id": "tns-core-modules@2.5.0-2016-10-27-4579",
+  "scripts": {},
+  "_shasum": "3867aabdfdc946a08b221ae153b79ad144ea1c8d",
+  "_from": "tns-core-modules@2.5.0-2016-10-27-4579",
+  "_npmVersion": "3.8.3",
+  "_nodeVersion": "5.10.1",
+  "_npmUser": {
+    "name": "erjangavalji",
+    "email": "erjan.gavalji@gmail.com"
+  },
+  "dist": {
+    "shasum": "3867aabdfdc946a08b221ae153b79ad144ea1c8d",
+    "size": 377595,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/tns-core-modules/download/tns-core-modules-2.5.0-2016-10-27-4579.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "enchev",
+      "email": "vladimir.enchev@gmail.com"
+    },
+    {
+      "name": "erjangavalji",
+      "email": "erjan.gavalji@gmail.com"
+    },
+    {
+      "name": "fatme",
+      "email": "hfatme@gmail.com"
+    },
+    {
+      "name": "hamorphis",
+      "email": "hamorphis@gmail.com"
+    },
+    {
+      "name": "hdeshev",
+      "email": "hristo@deshev.com"
+    },
+    {
+      "name": "hhristov",
+      "email": "hristo.hristov@outlook.com"
+    },
+    {
+      "name": "ligaz",
+      "email": "stefan.dobrev@gmail.com"
+    },
+    {
+      "name": "nsndeck",
+      "email": "nedyalko.nikolov@telerik.com"
+    },
+    {
+      "name": "panayot.cankov",
+      "email": "panayot.cankov@telerik.com"
+    },
+    {
+      "name": "sdobrev",
+      "email": "stefan.dobrev@gmail.com"
+    },
+    {
+      "name": "tns-bot",
+      "email": "nativescript@telerik.com"
+    },
+    {
+      "name": "tzraikov",
+      "email": "tsvetan.raikov@telerik.com"
+    },
+    {
+      "name": "vakrilov",
+      "email": "alexander.vakrilov@gmail.com"
+    },
+    {
+      "name": "valio.stoychev",
+      "email": "valio.stoychev@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/tns-core-modules-2.5.0-2016-10-27-4579.tgz_1477570001243_0.5180006718728691"
+  },
+  "directories": {},
+  "publish_time": 1477570003630,
+  "_cnpm_publish_time": 1477570003630,
+  "_resolved": "https://registry.npm.taobao.org/tns-core-modules/download/tns-core-modules-2.5.0-2016-10-27-4579.tgz"
+}
