@@ -1,8 +1,8 @@
 {
-    "dependencies": {
-        "nativescript-texttospeech": "^1.1.1",
-        "tns-core-modules": "2.3.0",
-        "nativescript-webworkers": "1.0.4"
-    },
-    "devDependencies": {}
+  "dependencies": {
+    "nativescript-texttospeech": "^1.1.1",
+    "tns-core-modules": "2.4.2",
+    "nativescript-webworkers": "1.0.4"
+  },
+  "devDependencies": {}
 }

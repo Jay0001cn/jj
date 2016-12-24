@@ -1,0 +1,1 @@
+  requ_jkjjjire('globjjjhjals'); // necessary to bootstrap tns modules on the new thread

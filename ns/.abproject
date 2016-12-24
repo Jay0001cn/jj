@@ -12,7 +12,9 @@
     "1",
     "2"
   ],
-  "iOSBackgroundMode": [],
+  "iOSBackgroundMode": [
+    "audio"
+  ],
   "ProjectTypeGuids": "{F0A65104-D4F4-4012-B799-F612D75820F6}",
   "AndroidPermissions": [
     "android.permission.INTERNET"
@@ -23,6 +25,6 @@
   ],
   "AndroidHardwareAcceleration": "true",
   "iOSStatusBarStyle": "Default",
-  "FrameworkVersion": "2.3.0",
+  "FrameworkVersion": "2.4.0",
   "Framework": "NativeScript"
 }

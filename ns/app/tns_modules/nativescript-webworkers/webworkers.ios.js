@@ -27,12 +27,15 @@ var _WKScriptMessageHandler = NSObject.extend({
 },{name: 'WKScriptMHandler', protocols: [WKScriptMessageHandler,WKNavigationDelegate]});
 
 function WebWorker(js) {
+     
     this._running = true;
     this._initialized = false;
     this._messages = [];
+    //alert("ok so far0");
     this._config = new WKWebViewConfiguration();
+    //alert("ok so far1");
     this._controller = new WKUserContentController();
-
+//alert("ok so far2");
     /*
      this._uiWindow = UIWindow.alloc().initWithFrame(CGRectMake(0,0,100,100));
      this._uiWindow.userInteractionEnabled = false;
@@ -57,7 +60,7 @@ function WebWorker(js) {
     var s2 = WKUserScript.alloc().initWithSourceInjectionTimeForMainFrameOnly(script2, WKUserScriptInjectionTimeAtDocumentEnd, false);
     this._scriptHandler = _WKScriptMessageHandler.alloc().init();
     this._scriptHandler._worker = this;
-
+//alert("ok so far3");
     this._controller.addScriptMessageHandlerName(this._scriptHandler, "channel");
 
     this._controller.addUserScript(s1);
@@ -73,31 +76,37 @@ function WebWorker(js) {
 //	d.addSubview(this.ios);
     //uiView.addSubview(this.ios);
 
-
+//alert("ok so far");
     if (js == null || js === '') {
+        alert("path null");
         console.error("WebWorkers: can not find JavaScript file: ", js);
         //noinspection JSUnresolvedFunction
         this.ios.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("about:blank")));
         return;
     }
     if (js[0] === '/' || (js[1] === '/' && (js[0] === '.' || js[0] === '~'))) {
+        
         if (js[0] === '~' || js[0] === '.') {
             // TODO: Check to see if ./ is working properly
             js = fs.path.join(fs.knownFolders.currentApp().path, js.substr(2));
         }
         if (fs.File.exists(js)) {
+            
             var baseURL = "file://" + js.substring(0, js.lastIndexOf('/') + 1);
             var baseJSUrl = NSURL.URLWithString(baseURL);
             var fileName = js.substring(baseURL.length-7);
 
             //noinspection JSUnresolvedFunction
             this.ios.loadHTMLStringBaseURL("<html><head><script src='"+fileName+"'></script></head></html>", baseJSUrl);
+               //alert("<html><head><script src='"+fileName+"'></script></head></html>");
         } else {
+            alert(js);
             console.error("WebWorkers: can not find JavaScript file: ", js);
             //noinspection JSUnresolvedFunction
             this.ios.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("about:blank")));
         }
     } else {
+       
         // Check for http(s)://
         if ((js[0] === 'h' || js[0] === 'H') && (js[6] === '/' && (js[5] === '/' || js[7] === '/'))) {
             //noinspection JSUnresolvedFunction
@@ -108,6 +117,8 @@ function WebWorker(js) {
             this.ios.loadHTMLStringBaseURL("<html><head><script>"+js+"</script></head></html>", baseDataUrl);
         }
     }
+
+    //alert("found");
 }
 
 WebWorker.prototype._clientMessage = function(m) {
@@ -152,6 +163,7 @@ WebWorker.prototype._finishedLoading = function() {
 };
 
 WebWorker.prototype.postMessage = function(data) {
+    
     if (!this._running) { return; }
     if (!this._initialized) {
         this._messages.push(data);
@@ -172,15 +184,41 @@ WebWorker.prototype.terminate = function() {
 WebWorker.prototype.onerror = function(e) {
     console.log("NativeScript-WebWorker error:", e);
     // Do Nothing.
+      alert(e);
 };
 
 WebWorker.prototype.onmessage = function() {
     console.log("NativeScript-WebWorker message");
     // Do Nothing.
+      alert("Webworker said:");
 };
 
 WebWorker.prototype.onready = function() {
+    var TNSTextToSpeech = require("nativescript-texttospeech");
     // Do nothing; this allows the end user to override this
+      let opts = {
+	    text: 'You may choose whether and how to split a body of text into multiple utterances for speech. Because an utterance can control speech parameters, you can split text into sections that require different parameters. For example, you can emphasize a sentence by increasing the pitch and decreasing the rate of that utterance relative to others, or you can introduce pauses between sentences by putting each one into an utterance with a leading or trailing delay. Because the speech synthesizer sends messages to its delegate as it starts or finishes speaking an utterance, you can create an utterance for each meaningful unit in a longer text in order to be notified as its speech progresses.',
+        language: "en-US",
+        //voice:  "com.apple.ttsbundle.Alex",
+        useAlex:   "yes",
+         finishedCallback: lop   
+	};
+   if(isChina(opts.text)){opts.voice = "com.apple.ttsbundle.Mei-Jia-compact";}
+    function isChina(s){ 
+var patrn=/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/gi; 
+if(!patrn.exec(s)){ 
+return false; 
+}
+else{ 
+return true; 
+} 
+}
+       let   TTS   = new TNSTextToSpeech.TNSTextToSpeech(); 
+       function  lop(){
+               TTS.speak(opts);
+       }
+       
+        TTS.speak(opts);
 };
 
 if (!global.Worker) {
