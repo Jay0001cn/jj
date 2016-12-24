@@ -63,6 +63,15 @@ var TNSTextToSpeech = (function () {
         if (this.isString(options.language) && this.isValidLocale(options.language)) {
             speechUtterance.voice = AVSpeechSynthesisVoice.voiceWithLanguage(options.language);
         }
+        
+        if (options.useAlex) {
+            speechUtterance.voice = AVSpeechSynthesisVoice.voiceWithIdentifier(AVSpeechSynthesisVoiceIdentifierAlex);
+        }
+
+        if (this.isString(options.voice)) {
+            speechUtterance.voice = AVSpeechSynthesisVoice.voiceWithIdentifier(options.voice);
+        }
+        
         speechUtterance.pitchMultiplier = options.pitch;
         speechUtterance.volume = options.volume;
         speechUtterance.rate = options.speakRate;
